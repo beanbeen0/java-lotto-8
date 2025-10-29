@@ -10,7 +10,14 @@ public class LottoPurchaseService {
     private static final int PRICE_PER_LOTTO = 1000;
 
     public List<Lotto> issueLottoByPrice(int price) {
+        validate(price);
         return getLottosByCount(getCountByPrice(price));
+    }
+
+    private void validate(int price) {
+        if (price % PRICE_PER_LOTTO != 0) {
+            throw new IllegalArgumentException("금액은 " + PRICE_PER_LOTTO + "원 단위로 입력해야 합니다.");
+        }
     }
 
     private static int getCountByPrice(int price) {
