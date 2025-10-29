@@ -1,0 +1,45 @@
+package lotto;
+
+import java.util.List;
+
+public class LottoComparator {
+
+    public LottoRank compare(Standard standard, Lotto lotto) {
+        int matchedCount = getMatchedCount(standard.getGeneralNumbers(), lotto);
+        boolean hasBonus = checkBonus(standard.getBonusNumber(), lotto);
+        return getLottoRank(matchedCount, hasBonus);
+    }
+
+    private static int getMatchedCount(List<Integer> standardNumbers, Lotto lotto) {
+        int count = 0;
+        for (int num : standardNumbers) {
+            for (int lottoNum : lotto.numbers()) {
+                if (num == lottoNum) count++;
+            }
+        }
+        return count;
+    }
+
+    private static boolean checkBonus(int bonusNumber, Lotto lotto) {
+        for (int num : lotto.numbers()) {
+            if (num == bonusNumber) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static LottoRank getLottoRank(int matchedGeneralCount, boolean matchedBonus) {
+        if (matchedGeneralCount == 6)
+            return LottoRank.FIRST;
+        if (matchedGeneralCount == 5 && matchedBonus)
+            return LottoRank.SECOND;
+        if (matchedGeneralCount == 5)
+            return LottoRank.THIRD;
+        if (matchedGeneralCount == 4)
+            return LottoRank.FOURTH;
+        if (matchedGeneralCount == 3)
+            return LottoRank.FIFTH;
+        return LottoRank.MISS;
+    }
+}
