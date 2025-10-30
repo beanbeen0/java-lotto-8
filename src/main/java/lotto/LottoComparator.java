@@ -1,8 +1,17 @@
 package lotto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LottoComparator {
+
+    public List<LottoRank> compare(Standard standard, List<Lotto> lottos) {
+        List<LottoRank> results = new ArrayList<>();
+        for (Lotto lotto : lottos) {
+            results.add(compare(standard, lotto));
+        }
+        return results;
+    }
 
     public LottoRank compare(Standard standard, Lotto lotto) {
         int matchedCount = getMatchedCount(standard.getGeneralNumbers(), lotto);
