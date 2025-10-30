@@ -1,11 +1,12 @@
 package lotto;
 
 import java.util.List;
+import lotto.messge.IssueMessage;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class FormatterTest {
+public class MessageTest {
 
     @Test
     @DisplayName("발권 정보 출력 : 1개 일 떄")
@@ -14,7 +15,7 @@ public class FormatterTest {
         List<Lotto> lottos = List.of(new Lotto(List.of(1, 2, 3, 4, 5, 6)));
 
         //when
-        String result = Formatter.getIssuedMessage(lottos);
+        String result = IssueMessage.getMessage(lottos);
 
         //then
         Assertions.assertThat(result).isEqualTo("1개를 구매했습니다.\n[1, 2, 3, 4, 5, 6]");
@@ -29,7 +30,7 @@ public class FormatterTest {
         );
 
         //when
-        String result = Formatter.getIssuedMessage(lottos);
+        String result = IssueMessage.getMessage(lottos);
 
         //then
         Assertions.assertThat(result).isEqualTo("2개를 구매했습니다.\n[1, 2, 3, 4, 5, 6]\n[1, 2, 3, 4, 5, 6]");
@@ -42,7 +43,7 @@ public class FormatterTest {
         List<Lotto> lottos = List.of(new Lotto(List.of(3, 2, 5, 1, 4, 6)));
 
         //when
-        String result = Formatter.getIssuedMessage(lottos);
+        String result = IssueMessage.getMessage(lottos);
 
         //then
         Assertions.assertThat(result).isEqualTo("1개를 구매했습니다.\n[1, 2, 3, 4, 5, 6]");
