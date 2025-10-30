@@ -4,6 +4,9 @@ package lotto;
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
+import lotto.service.LottoComparator;
+import lotto.service.LottoRank;
+import lotto.service.Standard;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

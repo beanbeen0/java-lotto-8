@@ -1,4 +1,4 @@
-package lotto;
+package lotto.service;
 
 import java.util.EnumMap;
 import java.util.List;

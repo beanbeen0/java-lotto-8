@@ -1,9 +1,10 @@
-package lotto;
+package lotto.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import lotto.Lotto;
 
 public class LottoMaker {
     static final int NUMBER_OF_PICKING = 6;
