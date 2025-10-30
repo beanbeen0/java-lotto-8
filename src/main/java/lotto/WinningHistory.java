@@ -3,6 +3,7 @@ package lotto;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class WinningHistory {
     private final Map<LottoRank, Integer> winningCount;
@@ -23,5 +24,18 @@ public class WinningHistory {
 
     public void addWinningCount(LottoRank rank) {
         winningCount.put(rank, getCountByLottoRank(rank) + 1);
+    }
+
+    public long getTotalAmount() {
+        long result = 0;
+        for (Entry<LottoRank, Integer> entry : winningCount.entrySet()) {
+            result += (long) entry.getKey().prizeAmount() * entry.getValue();
+        }
+        return result;
+    }
+
+    public double calculateReturnRate(int inputPrice) {
+        if (inputPrice == 0 && getTotalAmount() == 0) return 0.0;
+        return (double) getTotalAmount() / inputPrice * 100;
     }
 }
