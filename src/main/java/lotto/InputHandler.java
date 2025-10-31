@@ -2,10 +2,7 @@ package lotto;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.regex.PatternSyntaxException;
 
 public class InputHandler {
 
@@ -34,58 +31,14 @@ public class InputHandler {
         return Console.readLine();
     }
 
-    public static List<Integer> parseToLottoNumbers(String input) {
-        List<String> numbers = parseNumbers(input);
-        return convertLottoNumbers(numbers);
+    public static WinningNumbers parseWinningNumbers(String input) {
+        List<Integer> numbers = parseNumbers(input);
+        return new WinningNumbers(numbers);
     }
 
-    private static List<String> parseNumbers(String input) {
-        try {
-            return Arrays.stream(input.split(",")).toList();
-        } catch (PatternSyntaxException e) {
-            throw new IllegalArgumentException("당첨 번호 형식이 올바르지 않습니다.", e);
-        }
-    }
-
-    private static List<Integer> convertLottoNumbers(List<String> splited) {
-        List<Integer> collectedLottoNumbers = splited.stream()
-                .map(e -> convertLottoNumber(e))
+    private static List<Integer> parseNumbers(String input) {
+        return Arrays.stream(input.split(","))
+                .map(Integer::parseInt)
                 .toList();
-        validateLottoNumbersCount(collectedLottoNumbers);
-        validateNoDuplicated(collectedLottoNumbers);
-        return collectedLottoNumbers;
-    }
-
-    private static void validateNoDuplicated(List<Integer> numbers) {
-        Set<Integer> noDuplicated = new HashSet<>();
-        for (int number : numbers) {
-            if (!noDuplicated.add(number)) {
-                throw new IllegalArgumentException("당첨 로또 숫자들은 중복되지 않아야 한다.");
-            }
-        }
-    }
-
-    private static int convertLottoNumber(String e) {
-        int number = parseNumber(e);
-        validateLottoNumberRange(number);
-        return number;
-    }
-
-    private static void validateLottoNumbersCount(List<Integer> numbers) {
-        if (numbers.size() != 6) throw new IllegalArgumentException("당첨 번호는 6개여야 합니다.");
-    }
-
-    private static int parseNumber(String input) {
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("로또 번호는 숫자로 입력해주세요.", e);
-        }
-    }
-
-    private static void validateLottoNumberRange(int tmp) {
-        if (tmp < 1 || tmp > 45) {
-            throw new IllegalArgumentException("숫자 범위는 1 ~ 45 이어야 합니다.");
-        }
     }
 }
