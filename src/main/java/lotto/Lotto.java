@@ -2,7 +2,6 @@ package lotto;
 
 import java.util.HashSet;
 import java.util.List;
-import lotto.messge.LottoNumber;
 
 public class Lotto {
     private final List<LottoNumber> numbers;

@@ -26,7 +26,7 @@ public class InputHandler {
         return new Price(result);
     }
 
-    private static String promptLottoNumbersInputMessage() {
+    private static String promptWinningNumbersInputMessage() {
         System.out.println("당첨 번호를 입력해주세요.");
         return Console.readLine();
     }
@@ -38,7 +38,25 @@ public class InputHandler {
 
     private static List<Integer> parseNumbers(String input) {
         return Arrays.stream(input.split(","))
-                .map(Integer::parseInt)
+                .map(token -> parseNumber(token))
                 .toList();
+    }
+
+    private static int parseNumber(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자로 입력 해야 합니다.");
+        }
+    }
+
+    private static String promptWinningBonusNumberInputMessage() {
+        System.out.println("보너스 번호를 입력해 주세요.");
+        return Console.readLine();
+    }
+
+    public static LottoNumber parseBonusNumber(String input) {
+        int number = parseNumber(input);
+        return new LottoNumber(number);
     }
 }

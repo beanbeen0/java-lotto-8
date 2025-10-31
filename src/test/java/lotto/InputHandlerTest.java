@@ -62,4 +62,33 @@ class InputHandlerTest {
         assertThatThrownBy(() -> InputHandler.parseWinningNumbers(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("보너스 번호를 파싱해 로또 번호를 반환한다.")
+    void parseBonusNumber() {
+        //given
+        String input = "7";
+
+        //when
+        LottoNumber bonusNumber = InputHandler.parseBonusNumber(input);
+
+        //then
+        assertThat(bonusNumber.value()).isEqualTo(7);
+    }
+
+    @Test
+    @DisplayName("보너스 번호 양식이 맞지 않으면 예외를 반환한다.")
+    void checkBonusNumberFormat() {
+        String input = "  4";
+        assertThatThrownBy(() -> InputHandler.parseWinningNumbers(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("보너스 번호가 1~45 범위를 벗어나면 예외를 던진다.")
+    void checkBonusNumberRange() {
+        String input = "60";
+        assertThatThrownBy(() -> InputHandler.parseWinningNumbers(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
