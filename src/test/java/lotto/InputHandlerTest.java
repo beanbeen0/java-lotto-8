@@ -11,7 +11,7 @@ class InputHandlerTest {
     @DisplayName("투입 금액이 숫자 형식이 아니면 예외를 반환한다.")
     void checkNumberFormat() {
         String input = " 1";
-        assertThatThrownBy(() -> InputHandler.parseToInputPrice(input))
+        assertThatThrownBy(() -> InputHandler.parseToPrice(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -19,7 +19,7 @@ class InputHandlerTest {
     @DisplayName("투입 금액이 음수이면 예외를 반환한다.")
     void checkNegative() {
         String input = "-1000";
-        assertThatThrownBy(() -> InputHandler.parseToInputPrice(input))
+        assertThatThrownBy(() -> InputHandler.parseToPrice(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -27,7 +27,7 @@ class InputHandlerTest {
     @DisplayName("투입 금액 1000원 단위가 아니면 음수를 반환한다.")
     void checkMultipleOf1000() {
         String input = "999";
-        assertThatThrownBy(() -> InputHandler.parseToInputPrice(input))
+        assertThatThrownBy(() -> InputHandler.parseToPrice(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
