@@ -18,7 +18,9 @@ class LottoComparatorTest {
     @DisplayName("6개가 일치하면 1등이다.")
     void testFirstPrize() {
         Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
-        Standard standard = new Standard(List.of(1, 2, 3, 4, 5, 6), 7);
+        WinningNumbers winningNumbers = new WinningNumbers(List.of(1, 2, 3, 4, 5, 6));
+        LottoNumber bonusNumber = new LottoNumber(7);
+        Standard standard = new Standard(winningNumbers, bonusNumber);
 
         assertThat(lottoComparator.compare(standard, lotto))
                 .isEqualTo(LottoRank.FIRST);
@@ -28,7 +30,9 @@ class LottoComparatorTest {
     @DisplayName("5개가 일치하고, 보너스번호가 일치하면, 2등이다.")
     void testSecondPrize() {
         Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 7));
-        Standard standard = new Standard(List.of(1, 2, 3, 4, 5, 6), 7);
+        WinningNumbers winningNumbers = new WinningNumbers(List.of(1, 2, 3, 4, 5, 6));
+        LottoNumber bonusNumber = new LottoNumber(7);
+        Standard standard = new Standard(winningNumbers, bonusNumber);
 
         assertThat(lottoComparator.compare(standard, lotto))
                 .isEqualTo(LottoRank.SECOND);
@@ -38,7 +42,9 @@ class LottoComparatorTest {
     @DisplayName("5개가 일치하고, 보너스번호가 불일치하면, 3등이다.")
     void testThirdPrize() {
         Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 8));
-        Standard standard = new Standard(List.of(1, 2, 3, 4, 5, 6), 7);
+        WinningNumbers winningNumbers = new WinningNumbers(List.of(1, 2, 3, 4, 5, 6));
+        LottoNumber bonusNumber = new LottoNumber(7);
+        Standard standard = new Standard(winningNumbers, bonusNumber);
 
         assertThat(lottoComparator.compare(standard, lotto))
                 .isEqualTo(LottoRank.THIRD);
@@ -48,7 +54,9 @@ class LottoComparatorTest {
     @DisplayName("4개가 일치하면 4등이다.")
     void testFourthPrize() {
         Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 8, 9));
-        Standard standard = new Standard(List.of(1, 2, 3, 4, 5, 6), 7);
+        WinningNumbers winningNumbers = new WinningNumbers(List.of(1, 2, 3, 4, 5, 6));
+        LottoNumber bonusNumber = new LottoNumber(7);
+        Standard standard = new Standard(winningNumbers, bonusNumber);
 
         assertThat(lottoComparator.compare(standard, lotto))
                 .isEqualTo(LottoRank.FOURTH);
@@ -57,7 +65,9 @@ class LottoComparatorTest {
     @DisplayName("3개가 일치하면 5등이다.")
     void testFifthPrize() {
         Lotto lotto = new Lotto(List.of(1, 2, 3, 8, 9, 10));
-        Standard standard = new Standard(List.of(1, 2, 3, 4, 5, 6), 7);
+        WinningNumbers winningNumbers = new WinningNumbers(List.of(1, 2, 3, 4, 5, 6));
+        LottoNumber bonusNumber = new LottoNumber(7);
+        Standard standard = new Standard(winningNumbers, bonusNumber);
 
         assertThat(lottoComparator.compare(standard, lotto))
                 .isEqualTo(LottoRank.FIFTH);
@@ -67,7 +77,9 @@ class LottoComparatorTest {
     @DisplayName("2개가 일치하면 낙첨이다.")
     void testMissPrize() {
         Lotto lotto = new Lotto(List.of(1, 2, 8, 9, 10, 11));
-        Standard standard = new Standard(List.of(1, 2, 3, 4, 5, 6), 7);
+        WinningNumbers winningNumbers = new WinningNumbers(List.of(1, 2, 3, 4, 5, 6));
+        LottoNumber bonusNumber = new LottoNumber(7);
+        Standard standard = new Standard(winningNumbers, bonusNumber);
 
         assertThat(lottoComparator.compare(standard, lotto))
                 .isEqualTo(LottoRank.MISS);
@@ -77,7 +89,9 @@ class LottoComparatorTest {
     @DisplayName("보너스 번호 일치는 당첨 번호 갯수에 포함되지 않는다.")
     void test() {
         Lotto lotto = new Lotto(List.of(1, 2, 8, 9, 10, 11));
-        Standard standard = new Standard(List.of(1, 2, 3, 4, 5, 6), 10);
+        WinningNumbers winningNumbers = new WinningNumbers(List.of(1, 2, 3, 4, 5, 6));
+        LottoNumber bonusNumber = new LottoNumber(7);
+        Standard standard = new Standard(winningNumbers, bonusNumber);
 
         assertThat(lottoComparator.compare(standard, lotto))
                 .isEqualTo(LottoRank.MISS);

@@ -3,7 +3,6 @@ package lotto;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import lotto.messge.LottoNumber;
 
 public class WinningNumbers {
 
@@ -41,6 +40,10 @@ public class WinningNumbers {
         return values.stream()
                 .map(LottoNumber::value)
                 .toList();
+    }
+
+    public boolean contains(LottoNumber lottoNumber) {
+        return values.contains(lottoNumber);
     }
 
     @Override

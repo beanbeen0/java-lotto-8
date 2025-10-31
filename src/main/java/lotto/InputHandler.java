@@ -56,7 +56,6 @@ public class InputHandler {
     }
 
     public static LottoNumber parseBonusNumber(String input) {
-        int number = parseNumber(input);
-        return new LottoNumber(number);
+        return new LottoNumber(parseNumber(input));
     }
 }
