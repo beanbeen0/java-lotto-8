@@ -6,7 +6,7 @@ import java.util.List;
 
 public class InputHandler {
 
-    static Price getInputPrice() {
+    public static Price getInputPrice() {
         String input = promptInputPriceMessage();
         return parseToPrice(input);
     }
@@ -24,6 +24,11 @@ public class InputHandler {
             throw new IllegalArgumentException("투입 금액은 숫자여야 합니다.", e);
         }
         return new Price(result);
+    }
+
+    public static WinningNumbers getWinningNumbers() {
+            String input = promptWinningNumbersInputMessage();
+            return parseWinningNumbers(input);
     }
 
     private static String promptWinningNumbersInputMessage() {
@@ -48,6 +53,11 @@ public class InputHandler {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자로 입력 해야 합니다.");
         }
+    }
+
+    public static LottoNumber getBonusNumber() {
+        String input = promptWinningBonusNumberInputMessage();
+        return parseBonusNumber(input);
     }
 
     private static String promptWinningBonusNumberInputMessage() {

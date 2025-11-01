@@ -16,14 +16,9 @@ public class LottoMaker {
     }
 
     private List<Integer> pickLottoNumbersByCount(int count) {
-        Set<Integer> notDuplicatedNumbers = new HashSet<>();
-        while (notDuplicatedNumbers.size() < count) {
-            notDuplicatedNumbers.add(pickRandomLottoNumber());
-        }
-        return notDuplicatedNumbers.stream().toList();
-    }
-
-    private int pickRandomLottoNumber() {
-        return Randoms.pickNumberInRange(LOTTO_NUMBER_RANGE_START, LOTTO_NUMBER_RANGE_END);
+        return Randoms.pickUniqueNumbersInRange(
+                LOTTO_NUMBER_RANGE_START,
+                LOTTO_NUMBER_RANGE_END,
+                count);
     }
 }

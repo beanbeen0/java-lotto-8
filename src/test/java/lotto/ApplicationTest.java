@@ -10,7 +10,6 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomUniqueN
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled("기능 개발 중")
 class ApplicationTest extends NsTest {
     private static final String ERROR_MESSAGE = "[ERROR]";
 
@@ -48,6 +47,7 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Disabled("기능 개발 중")
     @Test
     void 예외_테스트() {
         assertSimpleTest(() -> {
@@ -68,7 +68,7 @@ class ApplicationTest extends NsTest {
                             "5개 일치 (1,500,000원) - 0개",
                             "5개 일치, 보너스 볼 일치 (30,000,000원) - 0개",
                             "6개 일치 (2,000,000,000원) - 0개",
-                            "총 수익률은 00.0%입니다."
+                            "총 수익률은 0.0%입니다."
                     );
                 }
         );
