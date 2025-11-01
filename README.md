@@ -45,9 +45,10 @@
 - 총 수익률을 산출한다. 수익률은 (총 상금) / (투입 금액)의 백분율이다.
 - 투입금액과 총상금이 각각 0원이면, 0.0%를 반환한다.
 
-### `예외 출력`
-- 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시키고, "[ERROR]"로 시작하는 에러 메시지를 출력 후 그 부분부터 입력을 다시 받는다.
-  `Exception`이 아닌 `IllegalArgumentException`, `IllegalStateException` 등과 같은 명확한 유형을 처리한다.
+### `예외 처리`
+- 사용자가 잘못된 값을 입력할 경우, 에러 메시지를 출력 후 그 부분부터 입력을 다시 받는다.
+- 에러 메시지는 "[ERROR]"로 시작한다.
+- `Exception`이 아닌 `IllegalArgumentException`, `IllegalStateException` 등과 같은 명확한 유형을 처리한다.
 
 ### `입력`
 - `구입 금액`을 입력받는다.

@@ -47,7 +47,6 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Disabled("기능 개발 중")
     @Test
     void 예외_테스트() {
         assertSimpleTest(() -> {
