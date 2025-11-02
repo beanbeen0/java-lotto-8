@@ -20,13 +20,13 @@ public class Lotto {
 
     private void validateSize(List<Integer> numbers) {
         if (numbers.size() != 6) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
+            throw new IllegalArgumentException(Error.WRONG_COUNT_OF_LOTTO_NUMBERS.text());
         }
     }
 
     private void validateDuplication(List<Integer> values) {
         if (values.size() != new HashSet<>(values).size()) {
-            throw new IllegalArgumentException("당첨 번호는 중복될 수 없습니다.");
+            throw new IllegalArgumentException(Error.DUPLICATED_LOTTO_NUMBERS.text());
         }
     }
 

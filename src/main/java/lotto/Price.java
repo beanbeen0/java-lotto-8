@@ -3,6 +3,7 @@ package lotto;
 import java.util.Objects;
 
 public class Price {
+
     int price;
 
     public Price(int price) {
@@ -21,13 +22,13 @@ public class Price {
 
     private static void validateNotNegative(int price) {
         if (price < 0) {
-            throw new IllegalArgumentException("투입금액은 0원 이상이어야 합니다.");
+            throw new IllegalArgumentException(Error.NEGATIVE_PRICE.text());
         }
     }
 
     private static void validateMultipleOf1000(int price) {
         if (price % 1000 != 0) {
-            throw new IllegalArgumentException("투입금액은 1000원 단위 이어야 합니다.");
+            throw new IllegalArgumentException(Error.WRONG_UNIT_OF_PRICE.text());
         }
     }
 

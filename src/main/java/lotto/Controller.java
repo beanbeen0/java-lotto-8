@@ -16,23 +16,19 @@ public class Controller {
     private final LottoStatisticsService lottoStatisticsService = new LottoStatisticsService();
 
     public void run() {
-        // 투입 금액
         Price price = retryUntilValid(inputView::readPrice);
-
-        // 로또 구매 및 출력
-        List<Lotto> lottos = lottoPurchaser.issueLottoByPrice(price);;
+        List<Lotto> lottos = lottoPurchaser.issueLottoByPrice(price);
+        System.out.println();
         System.out.println(IssueMessage.getMessage(lottos));
 
-        // 당첨 번호 및 보너스 번호 입력 받기
         WinningNumbers winningNumbers = retryUntilValid(inputView::readWinningNumbers);
         Standard standard = retryUntilValid(() -> {
             LottoNumber bonusNumber = inputView.readBounusNumber();
             return new Standard(winningNumbers, bonusNumber);
         });
-
-        // 로또 판정 및 출력
         WinningHistory history = lottoStatisticsService.getStatistics(standard, lottos);
         double returnRate = history.calculateReturnRate(price.value());
+        System.out.println();
         System.out.println(ReportMessage.getMessage(history, returnRate));
     }
 

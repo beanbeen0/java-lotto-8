@@ -24,15 +24,13 @@ public class WinningNumbers {
 
     private void validateSize(List<Integer> values) {
         if (values.size() != LOTTO_NUMBER_COUNT) {
-            throw new IllegalArgumentException(
-                    String.format("당첨 번호는 %d개여야 합니다.", LOTTO_NUMBER_COUNT)
-            );
+            throw new IllegalArgumentException(Error.WRONG_COUNT_OF_WINNING_NUMBERS.text());
         }
     }
 
     private void validateDuplication(List<Integer> values) {
         if (values.size() != new HashSet<>(values).size()) {
-            throw new IllegalArgumentException("당첨 번호는 중복될 수 없습니다.");
+            throw new IllegalArgumentException(Error.DUPLICATED_WINNING_NUMBER.text());
         }
     }
 

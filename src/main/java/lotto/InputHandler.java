@@ -6,13 +6,7 @@ import java.util.List;
 public class InputHandler {
 
     public Price parseToPrice(String input) {
-        int result;
-        try {
-            result = Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("투입 금액은 숫자여야 합니다.", e);
-        }
-        return new Price(result);
+        return new Price(parseNumber(input));
     }
 
     public WinningNumbers parseWinningNumbers(String input) {
@@ -34,7 +28,7 @@ public class InputHandler {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자로 입력 해야 합니다.");
+            throw new IllegalArgumentException(Error.NOT_NUMBER_FORMAT.text());
         }
     }
 }
