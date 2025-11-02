@@ -1,6 +1,6 @@
 package lotto.service;
 
-import static lotto.constant.Constants.*;
+import static lotto.constant.Constants.LOTTO_UNIT_PRICE;
 
 import java.util.ArrayList;
 import java.util.List;

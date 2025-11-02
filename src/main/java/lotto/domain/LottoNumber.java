@@ -1,12 +1,13 @@
 package lotto.domain;
 
-import static lotto.constant.Constants.*;
+import static lotto.constant.Constants.LOTTO_MAX_NUMBER;
+import static lotto.constant.Constants.LOTTO_MIN_NUMBER;
 
 import java.util.Objects;
 import lotto.constant.Error;
 
 public class LottoNumber {
-
+    
     private final int value;
 
     public LottoNumber(int value) {

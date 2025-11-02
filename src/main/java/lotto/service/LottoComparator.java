@@ -26,7 +26,9 @@ public class LottoComparator {
         int count = 0;
         for (int num : standardNumbers) {
             for (int lottoNum : lotto.numbers()) {
-                if (num == lottoNum) count++;
+                if (num == lottoNum) {
+                    count++;
+                }
             }
         }
         return count;

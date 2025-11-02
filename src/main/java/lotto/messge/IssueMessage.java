@@ -4,6 +4,7 @@ import java.util.List;
 import lotto.domain.Lotto;
 
 public class IssueMessage {
+    
     public static String getMessage(List<Lotto> lottos) {
         return Formatter.blocks(formatIssuedCountLine(lottos), formatLottosBlock(lottos));
     }

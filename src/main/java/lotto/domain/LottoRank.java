@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum LottoRank {
-
+    
     MISS("2개 이하 일치", 0),
     FIFTH("3개 일치", 5000),
     FOURTH("4개 일치", 50000),
@@ -35,16 +35,21 @@ public enum LottoRank {
     }
 
     public static LottoRank getRank(int matchedGeneralCount, boolean matchedBonus) {
-        if (matchedGeneralCount == 6)
+        if (matchedGeneralCount == 6) {
             return LottoRank.FIRST;
-        if (matchedGeneralCount == 5 && matchedBonus)
+        }
+        if (matchedGeneralCount == 5 && matchedBonus) {
             return LottoRank.SECOND;
-        if (matchedGeneralCount == 5)
+        }
+        if (matchedGeneralCount == 5) {
             return LottoRank.THIRD;
-        if (matchedGeneralCount == 4)
+        }
+        if (matchedGeneralCount == 4) {
             return LottoRank.FOURTH;
-        if (matchedGeneralCount == 3)
+        }
+        if (matchedGeneralCount == 3) {
             return LottoRank.FIFTH;
+        }
         return LottoRank.MISS;
     }
 }

@@ -1,6 +1,9 @@
 package lotto.constant;
 
-import static lotto.constant.Constants.*;
+import static lotto.constant.Constants.LOTTO_MAX_NUMBER;
+import static lotto.constant.Constants.LOTTO_MIN_NUMBER;
+import static lotto.constant.Constants.LOTTO_NUMBER_COUNT;
+import static lotto.constant.Constants.LOTTO_UNIT_PRICE;
 
 public enum Error {
 
@@ -13,7 +16,7 @@ public enum Error {
     DUPLICATED_LOTTO_NUMBERS("로또 번호는 중복될 수 없습니다."),
     WRONG_COUNT_OF_LOTTO_NUMBERS("로또 번호는 " + LOTTO_NUMBER_COUNT + "개여야 합니다."),
     WRONG_RANGE_OF_LOTTO_NUMBER(
-            "로또 숫자는 "+ LOTTO_MIN_NUMBER + " ~ "+ LOTTO_MAX_NUMBER +" 사이의 숫자합니다."),
+            "로또 숫자는 " + LOTTO_MIN_NUMBER + " ~ " + LOTTO_MAX_NUMBER + " 사이의 숫자합니다."),
 
     WRONG_COUNT_OF_WINNING_NUMBERS("당첨 번호는 " + LOTTO_NUMBER_COUNT + "개여야 합니다."),
     DUPLICATED_WINNING_NUMBER("당첨 번호는 중복될 수 없습니다.");

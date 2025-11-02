@@ -1,6 +1,6 @@
 package lotto.domain;
 
-import static lotto.constant.Constants.*;
+import static lotto.constant.Constants.LOTTO_NUMBER_COUNT;
 
 import java.util.HashSet;
 import java.util.List;

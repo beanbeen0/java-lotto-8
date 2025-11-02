@@ -36,7 +36,9 @@ public class WinningHistory {
     }
 
     public double calculateReturnRate(int inputPrice) {
-        if (inputPrice == 0 && getTotalAmount() == 0) return 0.0;
+        if (inputPrice == 0 && getTotalAmount() == 0) {
+            return 0.0;
+        }
         return (double) getTotalAmount() / inputPrice * 100;
     }
 }
