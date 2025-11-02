@@ -1,7 +1,7 @@
 package lotto.messge;
 
 import java.util.stream.Collectors;
-import lotto.service.LottoRank;
+import lotto.domain.LottoRank;
 import lotto.service.WinningHistory;
 
 public class ReportMessage {

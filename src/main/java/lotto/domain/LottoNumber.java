@@ -1,8 +1,9 @@
-package lotto;
+package lotto.domain;
 
-import static lotto.Constants.*;
+import static lotto.constant.Constants.*;
 
 import java.util.Objects;
+import lotto.constant.Error;
 
 public class LottoNumber {
 

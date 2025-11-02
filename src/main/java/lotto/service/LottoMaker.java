@@ -1,10 +1,10 @@
 package lotto.service;
 
-import static lotto.Constants.*;
+import static lotto.constant.Constants.*;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
-import lotto.Lotto;
+import lotto.domain.Lotto;
 
 public class LottoMaker {
 

@@ -4,6 +4,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import lotto.domain.LottoRank;
 
 public class WinningHistory {
     private final Map<LottoRank, Integer> winningCount;

@@ -1,9 +1,10 @@
-package lotto;
+package lotto.domain;
 
-import static lotto.Constants.*;
+import static lotto.constant.Constants.*;
 
 import java.util.HashSet;
 import java.util.List;
+import lotto.constant.Error;
 
 public class Lotto {
     private final List<LottoNumber> numbers;

@@ -2,6 +2,10 @@ package lotto;
 
 import java.util.Arrays;
 import java.util.List;
+import lotto.constant.Error;
+import lotto.domain.LottoNumber;
+import lotto.domain.Price;
+import lotto.domain.WinningNumbers;
 
 public class InputHandler {
 

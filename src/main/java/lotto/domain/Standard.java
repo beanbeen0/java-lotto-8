@@ -1,9 +1,7 @@
-package lotto.service;
+package lotto.domain;
 
 import java.util.List;
-import lotto.Error;
-import lotto.LottoNumber;
-import lotto.WinningNumbers;
+import lotto.constant.Error;
 
 public class Standard {
     private final WinningNumbers generalNumbers;

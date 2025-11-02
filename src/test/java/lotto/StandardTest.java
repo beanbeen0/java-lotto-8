@@ -1,11 +1,12 @@
-package lotto.service;
+package lotto;
 
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
-import lotto.LottoNumber;
-import lotto.WinningNumbers;
+import lotto.domain.LottoNumber;
+import lotto.domain.Standard;
+import lotto.domain.WinningNumbers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

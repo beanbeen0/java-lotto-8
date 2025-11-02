@@ -1,12 +1,11 @@
 package lotto.service;
 
-import static lotto.Constants.*;
+import static lotto.constant.Constants.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import lotto.Constants;
-import lotto.Lotto;
-import lotto.Price;
+import lotto.domain.Lotto;
+import lotto.domain.Price;
 
 public class LottoPurchaser {
 

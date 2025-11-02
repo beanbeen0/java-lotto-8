@@ -1,6 +1,6 @@
-package lotto;
+package lotto.constant;
 
-import static lotto.Constants.*;
+import static lotto.constant.Constants.*;
 
 public enum Error {
 

@@ -1,7 +1,7 @@
 package lotto.messge;
 
 import java.util.List;
-import lotto.Lotto;
+import lotto.domain.Lotto;
 
 public class IssueMessage {
     public static String getMessage(List<Lotto> lottos) {

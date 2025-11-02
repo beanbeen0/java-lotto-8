@@ -1,8 +1,9 @@
-package lotto;
+package lotto.domain;
 
-import static lotto.Constants.LOTTO_UNIT_PRICE;
+import static lotto.constant.Constants.LOTTO_UNIT_PRICE;
 
 import java.util.Objects;
+import lotto.constant.Error;
 
 public class Price {
 
