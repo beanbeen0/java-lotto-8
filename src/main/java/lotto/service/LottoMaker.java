@@ -1,24 +1,21 @@
 package lotto.service;
 
+import static lotto.Constants.*;
+
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import lotto.Lotto;
 
 public class LottoMaker {
-    static final int NUMBER_OF_PICKING = 6;
-    static final int LOTTO_NUMBER_RANGE_START = 1;
-    static final int LOTTO_NUMBER_RANGE_END = 45;
 
     public Lotto issueLotto() {
-        return new Lotto(pickLottoNumbersByCount(NUMBER_OF_PICKING));
+        return new Lotto(pickLottoNumbersByCount(LOTTO_NUMBER_COUNT));
     }
 
     private List<Integer> pickLottoNumbersByCount(int count) {
         return Randoms.pickUniqueNumbersInRange(
-                LOTTO_NUMBER_RANGE_START,
-                LOTTO_NUMBER_RANGE_END,
+                LOTTO_MIN_NUMBER,
+                LOTTO_MAX_NUMBER,
                 count);
     }
 }

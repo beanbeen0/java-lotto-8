@@ -1,5 +1,7 @@
 package lotto;
 
+import static lotto.Constants.*;
+
 import java.util.Objects;
 
 public class LottoNumber {
@@ -12,7 +14,7 @@ public class LottoNumber {
     }
 
     private void validateRange(int value) {
-        if (value < 1 || value > 45) {
+        if (value < LOTTO_MIN_NUMBER || value > LOTTO_MAX_NUMBER) {
             throw new IllegalArgumentException(Error.WRONG_RANGE_OF_LOTTO_NUMBER.text());
         }
     }

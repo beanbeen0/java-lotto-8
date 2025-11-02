@@ -1,5 +1,7 @@
 package lotto;
 
+import static lotto.Constants.LOTTO_UNIT_PRICE;
+
 import java.util.Objects;
 
 public class Price {
@@ -16,7 +18,7 @@ public class Price {
     }
 
     private void validate(int price) {
-        validateMultipleOf1000(price);
+        validateMultipleOfUnit(price);
         validateNotNegative(price);
     }
 
@@ -26,8 +28,8 @@ public class Price {
         }
     }
 
-    private static void validateMultipleOf1000(int price) {
-        if (price % 1000 != 0) {
+    private static void validateMultipleOfUnit(int price) {
+        if (price % LOTTO_UNIT_PRICE != 0) {
             throw new IllegalArgumentException(Error.WRONG_UNIT_OF_PRICE.text());
         }
     }

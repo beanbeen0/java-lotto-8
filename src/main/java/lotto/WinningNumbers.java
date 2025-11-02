@@ -1,12 +1,12 @@
 package lotto;
 
+import static lotto.Constants.*;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
 public class WinningNumbers {
-
-    private static final int LOTTO_NUMBER_COUNT = 6;
 
     private final List<LottoNumber> values;
 

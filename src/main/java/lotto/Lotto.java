@@ -1,5 +1,7 @@
 package lotto;
 
+import static lotto.Constants.*;
+
 import java.util.HashSet;
 import java.util.List;
 
@@ -19,7 +21,7 @@ public class Lotto {
     }
 
     private void validateSize(List<Integer> numbers) {
-        if (numbers.size() != 6) {
+        if (numbers.size() != LOTTO_NUMBER_COUNT) {
             throw new IllegalArgumentException(Error.WRONG_COUNT_OF_LOTTO_NUMBERS.text());
         }
     }
