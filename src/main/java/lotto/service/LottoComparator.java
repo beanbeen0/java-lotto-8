@@ -19,7 +19,7 @@ public class LottoComparator {
     public LottoRank compare(Standard standard, Lotto lotto) {
         int matchedCount = getMatchedCount(standard.getGeneralNumbers(), lotto);
         boolean hasBonus = checkBonus(standard.getBonusNumber(), lotto);
-        return getLottoRank(matchedCount, hasBonus);
+        return LottoRank.getRank(matchedCount, hasBonus);
     }
 
     private static int getMatchedCount(List<Integer> standardNumbers, Lotto lotto) {
@@ -39,19 +39,5 @@ public class LottoComparator {
             }
         }
         return false;
-    }
-
-    private static LottoRank getLottoRank(int matchedGeneralCount, boolean matchedBonus) {
-        if (matchedGeneralCount == 6)
-            return LottoRank.FIRST;
-        if (matchedGeneralCount == 5 && matchedBonus)
-            return LottoRank.SECOND;
-        if (matchedGeneralCount == 5)
-            return LottoRank.THIRD;
-        if (matchedGeneralCount == 4)
-            return LottoRank.FOURTH;
-        if (matchedGeneralCount == 3)
-            return LottoRank.FIFTH;
-        return LottoRank.MISS;
     }
 }

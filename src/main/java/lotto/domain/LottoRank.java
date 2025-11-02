@@ -2,7 +2,6 @@ package lotto.domain;
 
 import java.util.Arrays;
 import java.util.List;
-import lotto.constant.Error;
 
 public enum LottoRank {
 
@@ -33,5 +32,19 @@ public enum LottoRank {
         return Arrays.stream(values())
                 .filter(rank -> rank != MISS)
                 .toList();
+    }
+
+    public static LottoRank getRank(int matchedGeneralCount, boolean matchedBonus) {
+        if (matchedGeneralCount == 6)
+            return LottoRank.FIRST;
+        if (matchedGeneralCount == 5 && matchedBonus)
+            return LottoRank.SECOND;
+        if (matchedGeneralCount == 5)
+            return LottoRank.THIRD;
+        if (matchedGeneralCount == 4)
+            return LottoRank.FOURTH;
+        if (matchedGeneralCount == 3)
+            return LottoRank.FIFTH;
+        return LottoRank.MISS;
     }
 }
